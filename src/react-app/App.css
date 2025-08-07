@@ -1,45 +1,240 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Ensure the html and body fill the viewport and have no margin/padding */
+/* Apply border-box sizing globally */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* Enable smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+}
+
+/* Root container - override for full page layout */
+#root {
+  max-width: none;           /* Remove max-width constraint */
+  margin: 0;                 /* Remove margin */
+  padding: 0;                /* Remove padding */
+  text-align: center;        /* Center text by default */
+  width: 100vw;              /* Full viewport width */
+  min-height: 100vh;
+}
+
+/* Logo styles for Vite, React, Hono, Cloudflare */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 6em;               /* Logo height */
+  padding: 1.5em;            /* Space around logo */
+  will-change: filter;       /* Hint for performance optimization */
+  transition: filter 300ms;  /* Smooth filter transition on hover */
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #646cffaa); /* Blue shadow on hover */
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #61dafbaa); /* React blue shadow */
 }
 .logo.cloudflare:hover {
-  filter: drop-shadow(0 0 2em #f6821faa);
+  filter: drop-shadow(0 0 2em #f6821faa); /* Cloudflare orange shadow */
 }
 
+/* Logo spin animation */
 @keyframes logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Start rotation */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* End rotation */
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Only spin React logo if user prefers motion */
+@media (max-width: 768px) {
+  .horizontal-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .profile-bg {
+    padding-bottom: 4rem; /* Prevent footer overlap */
+  }
+
+  .profile-card {
+    padding: 1.5rem;
+  }
+
+  .athlete-name {
+    font-size: 1.6rem;
+  }
+
+  .profile-details p {
+    font-size: 1rem;
   }
 }
 
+@media (max-width: 700px) {
+  .profile-bg {
+    padding-left: 0;              /* Remove left padding on mobile */
+    align-items: center;          /* Center content horizontally */
+  }
+  .profile-card {
+    max-width: 98vw;              /* Make card fit mobile width */
+    width: 98vw;
+    padding: 1rem;                /* Reduce padding on mobile */
+    margin: 0;
+  }
+  .horizontal-layout {
+    flex-direction: column;       /* Stack image and info vertically */
+    gap: 1.5rem;                  /* Reduce gap */
+    align-items: center;          /* Center items */
+  }
+  .profile-img-large {
+    width: 98vw !important;
+    max-width: 98vw !important;
+    height: auto !important;
+    display: block !important;
+  }
+  img.profile-img-large {
+    width: 90vw !important;
+    max-width: 300px !important;
+    height: auto !important;
+    min-height: 120px !important;
+    display: block !important;
+  }
+}
+
+
+/* Card style for template demo (not used in profile) */
 .card {
-  padding: 2em;
+  padding: 2em;              /* Padding inside card */
 }
 
 .read-the-docs {
-  color: #888;
+  color: #888;               /* Gray text for doc hint */
 }
+
+/* Background for the profile section */
+.profile-bg {
+  min-height: 100vh;           /* Full viewport height */
+  width: 100vw;                /* Full viewport width */
+  background-size: cover;      /* Scale image to cover the container */
+  background-repeat: no-repeat;/* Prevent image from repeating */
+  background-position: center; /* Center the image both horizontally and vertically */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;     /* Align children (profile card) to the left */
+  justify-content: center;
+  padding-left: 3rem;          /* Add space from the left edge */
+}
+
+/* Overlay for background image to improve readability */
+.profile-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 78, 80, 0.12); /* much lighter overlay */
+  z-index: 1;
+}
+
+/* Card containing the profile info */
+.profile-card {
+  background: rgba(255, 255, 255, 0.5);      /* Semi-transparent white background */
+  border-radius: 1.5rem;                     /* Rounded corners */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);    /* Drop shadow for depth */
+  padding: 2.5rem 2rem;                      /* Space inside the card */
+  max-width: 700px;                          /* Maximum width of the card */
+  width: 100%;                               /* Responsive width */
+  position: relative;                        /* For stacking context */
+  z-index: 2;                                /* Above the overlay */
+}
+
+/* Layout for profile image and info side by side */
+.horizontal-layout {
+  display: flex;   
+  flex-wrap: wrap;                          /* Flexbox for horizontal layout */
+  align-items: center;                       /* Vertically center items */
+  gap: 3.5rem;                               /* Space between image and info */
+}
+
+/* Profile image styling */
+.profile-img-large {
+  width: 300px;
+  object-fit: cover;
+  object-position: left 50%;
+  border-radius: 0;
+  border: 8px double gold;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  display: block;
+}
+
+/* Container for profile info */
+.profile-info {
+  flex: 1;                                   /* Take up remaining space */
+}
+
+/* Athlete name with gradient text */
+.athlete-name {
+  margin: 0;                                 /* Remove default margin */
+  font-size: 2.2rem;                         /* Large font size */
+  font-weight: 700;                          /* Bold text */
+  background: linear-gradient(90deg, #111,  #ff4e50, #967e08); /* Black, red, yellow gradient */
+  -webkit-background-clip: text;             /* Clip background to text (Safari/Chrome) */
+  -webkit-text-fill-color: transparent;      /* Make text transparent (Safari/Chrome) */
+  background-clip: text;                     /* Clip background to text (standard) */
+  color: transparent;                        /* Make text transparent (standard) */
+}
+
+/* Profile details (event, club, PB) */
+.profile-details p {
+  font-size: 1.2rem;                         /* Slightly larger text */
+  margin: 0.5rem 0;                          /* Vertical spacing */
+  color: #333;                               /* Dark gray text */
+}
+
+/* Footer at the bottom of the page */
+.main-footer {
+  width: 100vw;
+  text-align: center;
+  padding: 6rem 03rem 0; /* Increased padding to make the footer taller */
+  color: #fff;
+  background: rgba(8, 8, 8, 0.9);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+/* Flattened styles below */
+.footer-text {
+  margin-bottom: 0.5rem;
+}
+
+.affiliate-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.affiliate-logos img {
+  height: 120px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1.2);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.affiliate-logos img:hover {
+  transform: scale(1.1);
+  filter: none;
+}
+
