@@ -2,6 +2,11 @@
 
 import athleteMain from "./assets/athlete-main.jpg";
 import trackAction from "./assets/track-action.jpg";
+import estr from "./assets/estr.png";
+import iomathletics from "./assets/IOM-Athletics-Logo.png";
+import manxharriers from "./assets/manx_harriers.jpg";
+import sps from "./assets/SPS.png";
+import themeadows from "./assets/the_meadows.jpg";
 import "./App.css";
 
 function App() {
@@ -17,9 +22,11 @@ function App() {
             <p><strong>Personal Best:</strong> 12.6s</p>
           </div>
           <div className="about-me">
-            <h3>About Me</h3>
+            <h4>My Journey</h4>
             <p>
-              I am a dedicated athlete specializing in the 100m sprint. As a proud member of Manx Harriers, I strive for excellence on and off the track. My passion for athletics drives me to continually improve and inspire others.
+            My journey as a 100m sprinter is just getting started, and I'm tackling every challenge with fierce determination. As a proud member of the Manx Harriers, I thrive on pushing my limits. My personal best of 12.6s isn't just a number—it's a benchmark, and I'm on a mission to bring that time down with every training session.<br/>
+            <h4>My Goals</h4>
+            I am focused on disciplined training to refine my form and technique, with the clear objective of lowering my personal best. My ultimate goal is not only to achieve my own success but also to inspire others through my dedication and progress on the track.
             </p>
           </div>
         </div>
@@ -28,19 +35,19 @@ function App() {
 
   <div className="affiliate-logos">
   <a href="https://estr.im/" target="_blank" title="ESTR">
-    <img src="/assets/logos/estr.jpg" alt="ESTR" />
+    <img src={estr} alt="ESTR" />
   </a>
   <a href="https://iomathletics.com/" target="_blank" title="IOM Athletics">
-    <img src="/assets/logos/IOM-Athletics-Logo.jpg" alt="IOM Athletics" />
+    <img src={iomathletics} alt="IOM Athletics" />
   </a>
   <a href="http://www.manxharriers.com/" target="_blank" title="Manx Harriers">
-    <img src="/assets/logos/manx_harriers.jpg" alt="Manx Harriers" />
+    <img src={manxharriers} alt="Manx Harriers" />
   </a>
   <a href="https://performance08.wixsite.com/spsiom" target="_blank" title="SPS">
-    <img src="/assets/logos/SPS.png" alt="SPS" />
+    <img src={sps} alt="SPS" />
   </a>
   <a href="https://www.facebook.com/themeadowiom/" target="_blank" title="The Meadows">
-    <img src="/assets/logos/the_meadows.jpg" alt="The Meadows" />
+    <img src={themeadows} alt="The Meadows" />
   </a>
 </div>
 <div className="footer-text">
