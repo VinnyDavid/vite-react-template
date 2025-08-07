@@ -1,65 +1,53 @@
 // src/App.tsx
 
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import cloudflareLogo from "./assets/Cloudflare_Logo.svg";
-import honoLogo from "./assets/hono.svg";
+import athleteMain from "./assets/athlete-main.jpg";
+import trackAction from "./assets/track-action.jpg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState("unknown");
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://hono.dev/" target="_blank">
-          <img src={honoLogo} className="logo cloudflare" alt="Hono logo" />
-        </a>
-        <a href="https://workers.cloudflare.com/" target="_blank">
-          <img
-            src={cloudflareLogo}
-            className="logo cloudflare"
-            alt="Cloudflare logo"
-          />
-        </a>
+    <div className="profile-bg" style={{ backgroundImage: `url(${trackAction})` }}>
+      <div className="profile-card horizontal-layout">
+        <img src={athleteMain} alt="Haariyan David" className="profile-img-large" />
+        <div className="profile-info">
+          <h1 className="athlete-name">Haariyan David</h1>
+          <div className="profile-details">
+            <p><strong>Club:</strong> Manx Harriers</p>
+            <p><strong>Event:</strong> 100m Sprint</p>
+            <p><strong>Personal Best:</strong> 12.6s</p>
+          </div>
+          <div className="about-me">
+            <h3>About Me</h3>
+            <p>
+              I am a dedicated athlete specializing in the 100m sprint. As a proud member of Manx Harriers, I strive for excellence on and off the track. My passion for athletics drives me to continually improve and inspire others.
+            </p>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React + Hono + Cloudflare</h1>
-      <div className="card">
-        <button
-          onClick={() => setCount((count) => count + 1)}
-          aria-label="increment"
-        >
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <div className="card">
-        <button
-          onClick={() => {
-            fetch("/api/")
-              .then((res) => res.json() as Promise<{ name: string }>)
-              .then((data) => setName(data.name));
-          }}
-          aria-label="get name"
-        >
-          Name from API is: {name}
-        </button>
-        <p>
-          Edit <code>worker/index.ts</code> to change the name
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the logos to learn more</p>
-    </>
+      <footer className="main-footer">
+
+  <div className="affiliate-logos">
+  <a href="https://estr.im/" target="_blank" title="ESTR">
+    <img src="/assets/logos/estr.jpg" alt="ESTR" />
+  </a>
+  <a href="https://iomathletics.com/" target="_blank" title="IOM Athletics">
+    <img src="/assets/logos/IOM-Athletics-Logo.jpg" alt="IOM Athletics" />
+  </a>
+  <a href="http://www.manxharriers.com/" target="_blank" title="Manx Harriers">
+    <img src="/assets/logos/manx_harriers.jpg" alt="Manx Harriers" />
+  </a>
+  <a href="https://performance08.wixsite.com/spsiom" target="_blank" title="SPS">
+    <img src="/assets/logos/SPS.png" alt="SPS" />
+  </a>
+  <a href="https://www.facebook.com/themeadowiom/" target="_blank" title="The Meadows">
+    <img src="/assets/logos/the_meadows.jpg" alt="The Meadows" />
+  </a>
+</div>
+<div className="footer-text">
+    © 2024 Manx Harriers | Follow us on Instagram @manxharriers
+  </div>
+</footer>
+    </div>
   );
 }
 
