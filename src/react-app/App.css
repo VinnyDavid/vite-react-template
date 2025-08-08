@@ -44,6 +44,186 @@ html, body {
   filter: drop-shadow(0 0 2em #f6821faa); /* Cloudflare orange shadow */
 }
 
+/* Make images responsive */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive typography and layout for mobile */
+@media (max-width: 600px) {
+  body {
+    font-size: 1rem;
+  }
+  #root {
+    padding: 0.5em;
+  }
+  .logo {
+    height: 3em;
+    padding: 0.5em;
+  }
+}
+
+/* Large Desktop Screens (1200px and up) */
+@media (min-width: 1200px) {
+  .profile-bg {
+    padding-left: 5rem;
+    padding-bottom: 140px;
+  }
+  
+  .profile-card {
+    max-width: 800px;
+    padding: 3rem 2.5rem;
+  }
+  
+  .horizontal-layout {
+    gap: 4rem;
+  }
+  
+  .profile-img-large {
+    width: 350px;
+  }
+  
+  .athlete-name {
+    font-size: 2.5rem;
+  }
+  
+  .profile-details p {
+    font-size: 1.3rem;
+  }
+  
+  .affiliate-logos img {
+    height: 100px;
+  }
+}
+
+/* Extra Large Desktop Screens (1400px and up) */
+@media (min-width: 1400px) {
+  .profile-bg {
+    padding-left: 6rem;
+    padding-bottom: 150px;
+  }
+  
+  .profile-card {
+    max-width: 900px;
+    padding: 3.5rem 3rem;
+  }
+  
+  .horizontal-layout {
+    gap: 5rem;
+  }
+  
+  .profile-img-large {
+    width: 400px;
+  }
+  
+  .athlete-name {
+    font-size: 2.8rem;
+  }
+  
+  .profile-details p {
+    font-size: 1.4rem;
+  }
+}
+
+/* Ultra Wide Screens (1600px and up) */
+@media (min-width: 1600px) {
+  .profile-bg {
+    padding-left: 8rem;
+    padding-bottom: 160px;
+  }
+  
+  .profile-card {
+    max-width: 1000px;
+    padding: 4rem 3.5rem;
+  }
+  
+  .horizontal-layout {
+    gap: 6rem;
+  }
+  
+  .profile-img-large {
+    width: 450px;
+  }
+  
+  .athlete-name {
+    font-size: 3rem;
+  }
+}
+
+/* Tablet Landscape (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .profile-bg {
+    padding-left: 3rem;
+    padding-bottom: 130px;
+  }
+  
+  .profile-card {
+    max-width: 750px;
+    padding: 2.5rem 2rem;
+  }
+  
+  .horizontal-layout {
+    gap: 3rem;
+  }
+  
+  .profile-img-large {
+    width: 280px;
+  }
+  
+  .athlete-name {
+    font-size: 2rem;
+  }
+  
+  .affiliate-logos img {
+    height: 90px;
+  }
+}
+
+/* Tablet Portrait (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .profile-bg {
+    padding-left: 2rem;
+    align-items: center;
+    padding-bottom: 120px;
+  }
+  
+  .profile-card {
+    max-width: 90vw;
+    padding: 2rem 1.5rem;
+  }
+  
+  .horizontal-layout {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .profile-img-large {
+    width: 250px;
+  }
+  
+  .athlete-name {
+    font-size: 1.8rem;
+  }
+  
+  .profile-details p {
+    font-size: 1.1rem;
+  }
+  
+  .main-footer {
+    font-size: 0.9rem;
+    padding: 1.2rem 0.8rem 0.4rem;
+  }
+  
+  .affiliate-logos img {
+    height: 60px;
+  }
+}
+
 /* Logo spin animation */
 @keyframes logo-spin {
   from {
@@ -132,6 +312,7 @@ html, body {
   align-items: flex-start;     /* Align children (profile card) to the left */
   justify-content: center;
   padding-left: 3rem;          /* Add space from the left edge */
+  padding-bottom: 120px;       /* Add space for footer to prevent overlap */
 }
 
 /* Overlay for background image to improve readability */
@@ -153,6 +334,7 @@ html, body {
   width: 100%;                               /* Responsive width */
   position: relative;                        /* For stacking context */
   z-index: 2;                                /* Above the overlay */
+  box-sizing: border-box;                    /* Include padding in width calculations */
 }
 
 /* Layout for profile image and info side by side */
@@ -202,10 +384,10 @@ html, body {
 .main-footer {
   width: 100vw;
   text-align: center;
-  padding: 6rem 03rem 0; /* Increased padding to make the footer taller */
+  padding: 0.5rem 1rem 0.3rem; /* Minimal padding for compact footer */
   color: #fff;
-  background: rgba(8, 8, 8, 0.9);
-  font-size: 1rem;
+  background: rgba(8, 8, 8, 0.6);
+  font-size: 0.9rem;
   letter-spacing: 1px;
   position: fixed;
   left: 0;
@@ -227,7 +409,7 @@ html, body {
 }
 
 .affiliate-logos img {
-  height: 120px;
+  height: 60px;
   object-fit: contain;
   filter: grayscale(100%) brightness(1.2);
   transition: transform 0.3s ease, filter 0.3s ease;
@@ -236,5 +418,216 @@ html, body {
 .affiliate-logos img:hover {
   transform: scale(1.1);
   filter: none;
+}
+
+/* Additional mobile styles for smaller screens */
+@media (max-width: 768px) {
+  .profile-bg .profile-card {
+    max-width: 95vw !important;
+    width: 95vw !important;
+    padding: 1rem 1rem !important;
+    margin: 0 auto !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+  
+  .profile-bg {
+    padding-left: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-bottom: 100px !important;
+  }
+  
+  .horizontal-layout {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: center !important;
+  }
+  
+  .profile-img-large,
+  img.profile-img-large {
+    width: 250px !important;
+    max-width: 250px !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    object-fit: unset !important;
+    object-position: unset !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border: 4px double gold !important;
+    flex-shrink: 0 !important;
+    transform: translateY(0) !important;
+    position: relative !important;
+  }
+  
+  .main-footer,
+  footer.main-footer {
+    font-size: 0.7rem !important;
+    padding: 0.4rem 0.5rem 0.2rem !important;
+    letter-spacing: 0.5px !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+  
+  .affiliate-logos img {
+    height: 40px !important;
+  }
+  
+  .affiliate-logos {
+    gap: 0.3rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-bg .profile-card {
+    max-width: 98vw !important;
+    width: 98vw !important;
+    padding: 0.8rem 0.8rem !important;
+    margin: 0 !important;
+  }
+  
+  .athlete-name {
+    font-size: 1.4rem !important;
+  }
+  
+  .profile-details p {
+    font-size: 0.95rem !important;
+  }
+  
+  .profile-img-large,
+  img.profile-img-large {
+    width: 200px !important;
+    max-width: 200px !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    object-fit: unset !important;
+    object-position: unset !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border: 4px double gold !important;
+    flex-shrink: 0 !important;
+    transform: translateY(0) !important;
+    position: relative !important;
+  }
+  
+  .main-footer,
+  footer.main-footer {
+    font-size: 0.6rem !important;
+    padding: 0.3rem 0.3rem 0.1rem !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+  
+  .affiliate-logos img {
+    height: 30px !important;
+  }
+  
+  .affiliate-logos {
+    gap: 0.2rem !important;
+  }
+}
+
+/* Final mobile override - highest specificity */
+@media (max-width: 600px) {
+  .main-footer,
+  footer.main-footer,
+  div.main-footer {
+    font-size: 0.6rem !important;
+    padding: 0.3rem 0.3rem 0.1rem !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+  
+  .affiliate-logos img {
+    height: 30px !important;
+  }
+  
+  .affiliate-logos {
+    gap: 0.2rem !important;
+  }
+  
+  .profile-bg .profile-card {
+    max-width: 98vw !important;
+    width: 98vw !important;
+    padding: 0.8rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .profile-img-large,
+  img.profile-img-large {
+    width: 200px !important;
+    max-width: 200px !important;
+    height: auto !important;
+    min-height: auto !important;
+    object-fit: unset !important;
+    object-position: unset !important;
+  }
+}
+
+/* Small Mobile Screens (375px and below - iPhone SE, small phones) */
+@media (max-width: 375px) {
+  .main-footer,
+  footer.main-footer,
+  div.main-footer {
+    font-size: 0.5rem !important;
+    padding: 0.2rem 0.2rem 0.1rem !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+  
+  .affiliate-logos img {
+    height: 25px !important;
+  }
+  
+  .affiliate-logos {
+    gap: 0.1rem !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .profile-bg {
+    padding-bottom: 80px !important;
+    padding-left: 0 !important;
+  }
+  
+  .profile-bg .profile-card {
+    max-width: 95vw !important;
+    width: 95vw !important;
+    padding: 0.6rem 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .profile-img-large,
+  img.profile-img-large {
+    width: 150px !important;
+    max-width: 150px !important;
+    height: auto !important;
+    border: 3px double gold !important;
+  }
+  
+  .athlete-name {
+    font-size: 1.2rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .profile-details p {
+    font-size: 0.85rem !important;
+    margin: 0.3rem 0 !important;
+  }
+  
+  .about-me h4 {
+    font-size: 1rem !important;
+    margin: 0.5rem 0 0.3rem 0 !important;
+  }
+  
+  .about-me p {
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  .horizontal-layout {
+    gap: 1rem !important;
+  }
 }
 
