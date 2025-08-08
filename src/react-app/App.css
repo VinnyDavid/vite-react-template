@@ -279,6 +279,8 @@ img, video {
     max-width: 98vw !important;
     height: auto !important;
     display: block !important;
+    object-fit: contain !important;
+    object-position: center !important;
   }
   img.profile-img-large {
     width: 90vw !important;
@@ -286,6 +288,8 @@ img, video {
     height: auto !important;
     min-height: 120px !important;
     display: block !important;
+    object-fit: contain !important;
+    object-position: center !important;
   }
 }
 
@@ -440,7 +444,7 @@ img, video {
   
   .horizontal-layout {
     flex-direction: column !important;
-    gap: 1rem !important;
+    gap: 0.5rem !important;
     align-items: center !important;
   }
   
@@ -451,8 +455,8 @@ img, video {
     height: auto !important;
     min-height: auto !important;
     max-height: none !important;
-    object-fit: unset !important;
-    object-position: unset !important;
+    object-fit: contain !important;
+    object-position: center !important;
     display: block !important;
     margin: 0 auto !important;
     border: 4px double gold !important;
@@ -502,8 +506,8 @@ img, video {
     height: auto !important;
     min-height: auto !important;
     max-height: none !important;
-    object-fit: unset !important;
-    object-position: unset !important;
+    object-fit: contain !important;
+    object-position: center !important;
     display: block !important;
     margin: 0 auto !important;
     border: 4px double gold !important;
@@ -561,8 +565,8 @@ img, video {
     max-width: 200px !important;
     height: auto !important;
     min-height: auto !important;
-    object-fit: unset !important;
-    object-position: unset !important;
+    object-fit: contain !important;
+    object-position: center !important;
   }
 }
 
@@ -600,10 +604,17 @@ img, video {
   
   .profile-img-large,
   img.profile-img-large {
-    width: 150px !important;
-    max-width: 150px !important;
+    width: 140px !important;
+    max-width: 140px !important;
     height: auto !important;
-    border: 3px double gold !important;
+    min-height: auto !important;
+    max-height: 180px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border: 2px double gold !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border-radius: 8px !important;
   }
   
   .athlete-name {
@@ -627,7 +638,26 @@ img, video {
   }
   
   .horizontal-layout {
-    gap: 1rem !important;
+    gap: 0.3rem !important;
+  }
+}
+
+/* Specific fix for Samsung S20, iPhone 12 Pro, iPhone 14 (390px-412px) */
+@media (min-width: 376px) and (max-width: 430px) {
+  .profile-img-large,
+  img.profile-img-large {
+    width: 200px !important;
+    max-width: 200px !important;
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border: 3px double gold !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
   }
 }
 
